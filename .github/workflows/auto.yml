@@ -25,7 +25,14 @@ jobs:
         run: npm install
 
       - name: Run scraper
-        run: node index.js
+        - name: Run scraper
+  run: |
+    set -e
+    echo "Running scraper..."
+    node index.js || echo "SCRAPER ERROR ABOVE"
+    echo "=== OUTPUT FOLDER CONTENTS ==="
+    ls -R output || echo "No output folder"
+
 
       - name: Commit files
         run: |
