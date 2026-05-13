@@ -9,16 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Node 24
+      - name: Setup Node 20
         uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: 20
 
       - name: Install dependencies
         run: npm install
